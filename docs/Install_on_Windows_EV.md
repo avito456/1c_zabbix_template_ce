@@ -2,7 +2,7 @@
 
 
 
-* Установить шаблоны в Zabbix из папки ./configs
+🔴Установить шаблоны в Zabbix из папки ./configs
 <pre>
 1c_central_server.xml
 1c_license_server.xml
@@ -11,7 +11,7 @@
 
 
 
-* Настроить технологический журнал 1С  [logcfg.xml](../configs/logcfg_win.xml)
+🔴 Настроить технологический журнал 1С  [logcfg.xml](../configs/logcfg_win.xml)
 
 
 
@@ -21,7 +21,7 @@
 
 ### Настройка UserParameter 
 
-* Центральный сервер 1С
+🔸 Центральный сервер 1С
 <pre>
 UserParameter=1c.cs.ib.availability[*]      ,bash ./scripts/1c_central_server.sh ib_status $1
 UserParameter=1c.cs.sessions[*]             ,bash ./scripts/1c_central_server.sh sessions $1 $2 $3 $4
@@ -31,7 +31,7 @@ UserParameter=1c.cs.clusters.discovery[*]   ,bash ./scripts/1c_central_server.sh
 UserParameter=1c.cs.infobases.discovery[*]  ,bash ./scripts/1c_central_server.sh infobases $1 $2 $3 $4 $5
 </pre>
 
-* Рабочий сервер 1С
+🔸 Рабочий сервер 1С
 <pre>
 UserParameter=1c.ws.locks[*]    ,bash ./scripts/1c_work_server.sh locks $1 $2 $3 $4 $5 $6
 UserParameter=1c.ws.calls[*]    ,bash ./scripts/1c_work_server.sh calls $1 $2 $3
@@ -42,7 +42,7 @@ UserParameter=1c.ws.dump_logs[*],bash ./scripts/1c_work_server.sh dump_logs $1 $
 UserParameter=1c.ws.perfs[*]    ,bash ./scripts/1c_work_server.sh perfomance $1 $2 $3 $4
 </pre>
 
-* Cервер лицензирования 1С
+🔸 Cервер лицензирования 1С
 <pre>
 UserParameter=1c.ls.sessions[*]             ,bash ./scripts/1c_license_server.sh used $1 $2 $3 $4
 UserParameter=1c.ls.check[*]                ,bash ./scripts/1c_license_server.sh check
@@ -64,7 +64,7 @@ UserParameter=1c.ls.clusters.discovery[*]   ,bash ./scripts/1c_license_server.sh
 
 ## Примеры запуска скриптов из командной строки
 
-* Рабочий сервер 1С
+🔸 Рабочий сервер 1С
 <pre>
 Key=1c.ws.locks
 bash ./scripts/1c_work_server.sh locks  $1 $2 $3 $4 $5 $6
@@ -77,7 +77,7 @@ bash ./scripts/1c_work_server.sh locks  $1 $2 $3 $4 $5 $6
 {$RAS_PASS}
 </pre>
 
-* [1С/Серверные вызовы] Топы :)
+🔸 [1С/Серверные вызовы] Топы :)
 <pre>
 Key=1c.ws.calls
 bash ./scripts/1c_work_server.sh calls $1 $2 $3
@@ -92,19 +92,19 @@ bash ./scripts/1c_work_server.sh calls $1 $2 $3
 
 </pre>
 
-* [1С/Рабочий сервер] Объем памяти процессов
+🔸 [1С/Рабочий сервер] Объем памяти процессов
 <pre>
 Key=1c.ws.memory
 bash ./scripts/1c_work_server.sh memory
 </pre>
 
-* [1С/Рабочий сервер] Объем памяти сервера
+🔸 [1С/Рабочий сервер] Объем памяти сервера
 <pre>
 Key=1c.ws.ram
 bash ./scripts/1c_work_server.sh ram
 </pre>
 
-* [1С/Рабочий сервер] Ошибки процессов
+🔸 [1С/Рабочий сервер] Ошибки процессов
 <pre>
 Key=1c.ws.excps    
 bash ./scripts/1c_work_server.sh excps $1
@@ -112,12 +112,12 @@ bash ./scripts/1c_work_server.sh excps $1
     {$LOG_DIR} // В формате '/c/logs/...'
 </pre>
 
-* ????
+🔸 ????
 <pre>
 bash ./scripts/1c_work_server.sh dump_logs $1 $2
 </pre>
 
-* [1С/Рабочий процесс] Доступная производительность
+🔸 [1С/Рабочий процесс] Доступная производительность
 <pre>
 bash ./scripts/1c_work_server.sh perfomance $1 $2 $3 $4
 
@@ -130,7 +130,7 @@ bash ./scripts/1c_work_server.sh perfomance $1 $2 $3 $4
 
 ### Центральный сервер 1С
 
-* [1С/Центральный сервер] Текущие сеансы [1С/Сеансы]
+🔸 [1С/Центральный сервер] Текущие сеансы [1С/Сеансы]
 <pre>
     - [1С/Сеансы] Количество http-сервисов		                    Key=1c.cs.sessions.http
     - [1С/Сеансы] Количество активных		                        Key=1c.cs.sessions.as
@@ -143,6 +143,7 @@ bash ./scripts/1c_work_server.sh perfomance $1 $2 $3 $4
     - [1С/Сеансы] Текущая длительность вызова фонового задания	    Key=1c.cs.sessions.bgd
 </pre>
 
+🔸 [1С/Центральный сервер] Текущие сеансы
 <pre>
 Key=1c.cs.sessions
 bash ./scripts/1c_central_server.sh sessions $1 $2 $3 $4
@@ -153,12 +154,13 @@ bash ./scripts/1c_central_server.sh sessions $1 $2 $3 $4
     {$RAS_PASS}
 </pre>
 
-* Ограничения
+🔸 Ограничения
 <pre>
 key=1c.cs.ib.restrictions
 bash ./scripts/1c_central_server.sh ib_restrict
 </pre>
 
+🔸 Обнаружение кластеров ???
 <pre>
 key=1c.cs.clusters.discovery
 bash ./scripts/1c_central_server.sh clusters
@@ -167,7 +169,7 @@ bash ./scripts/1c_central_server.sh clusters
 
 ### Сервер лицензирования 1С
 
-* Активные сеансы
+🔸 Активные сеансы
 <pre>
 key=1c.ls.sessions
 bash ./scripts/1c_license_server.sh used $1 $2 $3 $4
@@ -178,13 +180,13 @@ bash ./scripts/1c_license_server.sh used $1 $2 $3 $4
     {$RAS_PASS}]
 </pre>
 
-* Проверка кластеров
+🔸 Проверка кластеров
 <pre>
 key=1c.ls.check
 bash ./scripts/1c_license_server.sh check
 </pre>
 
-* Поиск кластеров ???
+🔸 Поиск кластеров ???
 <pre>
 Key=1c.ls.clusters.discovery
 bash ./scripts/1c_license_server.sh clusters
