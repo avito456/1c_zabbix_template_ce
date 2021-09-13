@@ -1,4 +1,4 @@
-l<config xmlns="http://v8.1c.ru/v8/tech-log">
+<config xmlns="http://v8.1c.ru/v8/tech-log">
     <dump create="false"/>
     <log location="c:\logs\zabbix\locks" history="1">
         <event>
